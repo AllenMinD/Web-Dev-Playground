@@ -1,0 +1,69 @@
+知识点：
+1.CSS变量：
+具体教程：http://www.ruanyifeng.com/blog/2017/05/css-variables.html
+变量名用“--”开头来定义；
+通过【var（变量名）】来使用变量；
+只有CSS属性值可以用变量代替，CSS属性名不能。
+
+2.DOM添加/删除类
+
+DOMObject.classList.add('.hover-left'); // 添加类
+DOMObject.classList.remove('.hover-left'); // 删除类
+
+3.CSS3过渡/动画
+（“ease”这个单词是【缓慢】的意思）
+linear    默认值，全程匀速（正常速）
+ease    慢速-快速-慢速
+ease-in    慢速-正常速
+ease-out    正常速-慢速
+ease-in-out    慢速-正常速-慢速
+
+4.split的效果
+思路：
+先假设有4个类：
+.left 表示左边区域
+.right 表示右边区域
+.hover-left 表示当鼠标悬停在左边区域时，给左边区域添加该类
+.hover-right 表示当鼠标悬停在右边区域时，给右边区域添加该类
+变量--hover-width为 75%，表示鼠标悬停的区域的宽度
+--other-width为25%，表示鼠标没有悬停的区域的宽度
+
+.split.left::before {  /* 左边区域的蒙板 */
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: var(--left-bg-color);
+}
+
+.split.right::before {  /* 右边区域的蒙板 */
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: var(--right-bg-color);
+}
+
+.hover-left .left {    /* 鼠标悬停在左边区域时，左边区域的宽度 */
+  width: var(--hover-width);
+}
+
+.hover-left .right {  /* 鼠标悬停在左边区域时，右边区域的宽度 */
+  width: var(--other-width);
+}
+
+.hover-left .right::before {  /* 鼠标悬停在左边区域时，给右边区域加上一层“蒙板”效果 */
+  z-index: 2;
+}
+
+.hover-right .right {  /* 鼠标悬停在右边区域时，右边区域的宽度 */
+  width: var(--hover-width);
+}
+
+.hover-right .left {  /* 鼠标悬停在右边区域时，左边区域的宽度 */
+  width: var(--other-width);
+}
+
+.hover-right .left::before {  /* 鼠标悬停在右边区域时，给左边区域加上一层“蒙板”效果 */
+  z-index: 2;
+}

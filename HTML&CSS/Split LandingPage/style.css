@@ -1,0 +1,156 @@
+:root {  /* 定义全局CSS变量 */
+  --container-bg-color: #333;
+  --left-bg-color: rgba(255, 0, 2, 0.3);
+  --left-button-hover-color: rgba(255, 0, 2, 0.6);
+  --right-bg-color: rgba(43, 43, 43, 0.8);
+  --right-button-hover-color: rgba(92, 92, 92, 0.3);
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 1s;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url('./asset/Lato-Regular.ttf');
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: Lato, sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 4rem;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.button {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 2.5rem;
+  padding-top: 1.3rem;
+  width: 15rem;
+  text-align: center;
+  color: #fff;
+  border: 0.2rem  solid #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: translateX(-50%);
+}
+
+.split.left .button:hover {
+  background-color: var(--left-button-hover-color);
+  border-color: var(--left-button-hover-color);
+}
+
+.split.right .button:hover {
+  background-color: var(--right-button-hover-color);
+  border-color: var(--right-button-hover-color);
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--container-bg-color); 
+}
+
+.split {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.split.left {  
+  left: 0;
+  background: url('./asset/designer.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.split.left::before {  /* 左边区域的蒙板 */
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: var(--left-bg-color);
+}
+
+.split.right {
+  right: 0;
+  background: url('./asset/programmer.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.split.right::before {   /* 右边区域的蒙板 */
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: var(--right-bg-color);
+}
+
+.split.left,
+.split.right,
+.split.left::before,
+.split.right::before {
+  transition: all var(--speed) ease-in-out;
+}
+
+.hover-left .left {  /* 鼠标悬停在左边区域时，左边区域的宽度 */
+  width: var(--hover-width);
+}
+
+.hover-left .right {  /* 鼠标悬停在左边区域时，右边区域的宽度 */
+  width: var(--other-width);
+}
+
+.hover-left .right::before {  /* 鼠标悬停在左边区域时，给右边区域加上一层“蒙板”效果 */
+  z-index: 2;
+}
+
+.hover-right .right {  /* 鼠标悬停在右边区域时，右边区域的宽度 */
+  width: var(--hover-width);
+}
+
+.hover-right .left {  /* 鼠标悬停在右边区域时，左边区域的宽度 */
+  width: var(--other-width);
+}
+
+.hover-right .left::before {   /* 鼠标悬停在右边区域时，给左边区域加上一层“蒙板”效果 */
+  z-index: 2;
+}
+
+/* small screem */
+@media(max-width: 1000px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .button {
+    width: 12rem;
+  }
+}
+
+@media(max-height: 600px) {
+  .button {
+    top: 70%;
+  }
+}
