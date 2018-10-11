@@ -1,0 +1,97 @@
+@font-face {
+  font-family: Lato;
+  src: url('./asset/Lato-Regular.ttf');
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-size: 16px;
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  line-height: 1.8em;
+  color: #666;
+}
+
+.pimg1,
+.pimg2,
+.pimg3,
+.pimg4 {
+  position: relative;
+  opacity: 0.7;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  /* Parallax（视差滚动）效果的关键
+      fixed => Parallax
+      scroll => normal
+   */
+  background-attachment: fixed;
+}
+
+.pimg1 {
+  background-image: url('./asset/image1.jpeg');
+  min-height: 100%;
+}
+
+.pimg2 {
+  background-image: url('./asset/image2.jpeg');
+  min-height: 400px;
+}
+
+.pimg3 {
+  background-image: url('./asset/image3.jpeg');
+  min-height: 400px;
+}
+
+.pimg4 {
+  background-image: url('./asset/image4.jpeg');
+  min-height: 100%;
+}
+
+.section {
+  text-align: center;
+  padding: 50px 80px;
+}
+
+.section-light {
+  background-color: #f4f4f4;
+  color: #666;
+}
+
+.section-dark {
+  background-color: #282e34;
+  color: #ddd;
+}
+
+.ptext {
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  width: 100%;
+  color: #000;
+  font-size: 27px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+}
+
+.ptext .border {
+  background-color: #111;
+  color: #fff;
+  padding: 20px;
+}
+
+.ptext .trans {
+  background-color: transparent;
+}
+
+/* small screem */
+@media(max-width: 568px) {
+  .pimg1,
+  .pimg2,
+  .pimg3,
+  .pimg4 {
+    background-attachment: scroll;
+  }
+}
