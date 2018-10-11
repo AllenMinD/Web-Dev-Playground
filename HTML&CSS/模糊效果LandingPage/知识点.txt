@@ -1,0 +1,97 @@
+知识点：
+1.视图窗口适配<meta name="viewport" content="width=device-width, initial-scale=1.0">
+content属性值 :
+     width:可视区域的宽度，值可为数字或关键词device-width
+     height:同width
+     intial-scale:页面首次被显示是可视区域的缩放级别，取值1.0则页面按实际尺寸显示，无任何缩放
+     maximum-scale=1.0, minimum-scale=1.0;可视区域的缩放级别，
+     maximum-scale用户可将页面放大的程序，1.0将禁止用户放大到实际尺寸之上。
+     user-scalable:是否可对页面进行缩放，no 禁止缩放
+
+2.模糊效果：filter: blur(..px)
+
+3.添加头部banner图片的方法（巧用::after和vh）
+背景图在伪元素::after中设置，然后通过absolute和z-index控制显示在背景图上面的的内容。
+vh这个单位是相对于当前视窗占用比例。取值范围是：0vh~100vh。100vh表示占满整个视窗。
+
+.showcase {
+  position: relative;
+}
+
+/* 头部背景图片 */
+.showcase::after {
+  content: "";
+  height: 100vh;
+  width: 100%;
+  background-image: url('./asset/bg.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  transition: all 1s;
+}
+
+.showcase:hover::after {
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+}
+
+.showcase:hover .content {
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+.content {
+  position: absolute;
+  z-index: 1;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 350px;
+  text-align: center;
+  transition: all 1s;
+}
+
+.content .logo {
+  height: 180px;
+  width: 180px;
+}
+
+.content .title {
+  font-size: 2.2rem;
+  margin-top: 1rem;
+}
+
+.content .text {
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+
+4.文字显示处理（rem、line-height）
+rem单位是相对根元素的字体单位大小（即相对于16px）
+line-height如果设置为一个数字（没有单位），此数字会与当前字体尺寸相乘，用相乘的结果用来设置行高
+
+5.CSS Grid
+
+6.响应式布局：@media
+
+7.做移动布局时，除了正常移动视图，别忘了横向视图（landscape布局，就是把手机打横的时候所显示的视图）
+
+/* 要使得移动端媒体查询的成功应用，需要在html头部加上： 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+*/
+
+/* 竖向视图 */
+@media(max-width: 560px) {
+    ...
+}
+
+/* 横向视图（landscape）*/
+@media(max-height: 500px) {
+    ...
+}
+
+
