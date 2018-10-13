@@ -1,0 +1,15 @@
+知识点：
+1.让背景图片占满整个视窗，并且背景图片的尺寸跟随视窗尺寸的变化和变化
+方法：使用vh单位，设置背景图片的的height设置为100vh。（表示背景图片的高度占当前视窗高度的100%）
+
+#showcase {
+  background-image: url('./asset/beach.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;  /* 图片fullscreen效果的关键 */
+  
+  ...
+}
+
+2.flexbox

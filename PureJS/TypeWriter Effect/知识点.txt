@@ -1,0 +1,43 @@
+知识点：
+1.关于遍历数组下标索引的小技巧
+想象一个情景：假如有一个数组['allen', 'Bill', 'Zuck']，该数组有3个元素，数组下标为0， 1， 2。
+设置一个用来遍历的变量：i，当前索引为currentIndex
+
+var currentIndex, i = 0;
+while (1)
+    currentIndex = i % array.length;  // 无论i多大，currentIndex的值都只会控制在0，1，2
+    i++;
+}
+
+2.返回某个字符串的子串：
+str.substring(x, y)；  // 返回字符串str第x位到第y位（不包括第y位）的子串
+
+3.ES6语法：模版字符串  `<span>${xx}</span>`
+http://es6.ruanyifeng.com/#docs/string#%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2
+
+4.ES6语法：class
+http://es6.ruanyifeng.com/#docs/class
+
+class 类名 {
+    constructor([arg1], [agr2], ...) {  // 设置私有属性（相当于构造函数中的内容）
+        this.属性名1 = ...;
+        this.属性名2 = ...;
+        ...
+    }
+
+    方法名1([arg1], [agr2], ...) {
+        ...
+    },
+    方法名2([arg1], [agr2], ...) {
+        ...
+    },
+    ...
+}
+
+5.CSS3动画：Animation
+http://www.w3school.com.cn/css3/css3_animation.asp
+设置动画无限播放：
+animation: infinite; 或 animation-iteration-count: infinite;
+
+6.HTML5自定义元素属性：data-xxx="字符串"
+用 .getAttribute('data-xxx')获取自定义元素属性的值。
