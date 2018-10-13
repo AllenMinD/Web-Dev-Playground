@@ -1,0 +1,88 @@
+@font-face {
+  font-family: Lato;
+  src: url('./asset/Lato-Regular.ttf');
+}
+
+body {
+  font-family: Lato, "Microsoft Yahei", sans-serif;
+  height: 100vh;
+  background-image: url('./asset/bg.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #555;
+  overflow: hidden;  /* 去掉滚动条 */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0 3rem;
+}
+
+h1, h2 {
+  font-weight: 200;
+  margin: 0.4rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #888;
+}
+
+.txt-content {
+  display: inline;
+  color: #f4f4f4;
+  background-color: #555;
+}
+
+.txt-type > .txt {
+  
+}
+
+#cursor {
+  margin-left: -10px;
+  border-left: 5px solid #f4f4f4;
+  animation: flicker 1.5s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@media(min-width: 1200px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+@media(max-width: 800px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+@media(max-width: 500px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
