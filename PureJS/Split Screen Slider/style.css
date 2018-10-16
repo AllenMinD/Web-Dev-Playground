@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  line-height: 1.6;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#wrapper {
+  position: relative;
+  width: 100%;
+  /* 元素高度取决于视图的宽度 */
+  /* min-height: 55vw;   */
+  /* 占满整个视窗 */
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.layer {
+  position: absolute;
+  width: 100vw;
+  /* 元素高度取决于视图的宽度 */
+  /* min-height: 55vw;  */
+  /* 占满整个视窗 */
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.layer .content-wrap {
+  position: absolute;
+  width: 100vw;
+  /* 元素高度取决于视图的宽度 */
+  /* min-height: 55vw;  */
+  /* 占满整个视窗 */
+  min-height: 100vh;
+}
+
+.layer .content-body {
+  width: 25%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: #fff;
+}
+
+.layer img {
+  position: absolute;
+  width: 30%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.layer h1 {
+  font-size: 2em;
+}
+
+.bottom {
+  background-color: #222;
+  z-index: 1;
+}
+
+.bottom .content-body {
+  right: 5%;
+}
+
+.bottom h1 {
+  color: #FDAB00;
+}
+
+.top {
+  background-color: #eee;
+  color: #222;
+  z-index: 2;
+  width: 50vw;
+}
+
+.top .content-body {
+  left: 5%;
+  color: #222;
+}
+
+.handle {
+  position: absolute;
+  height: 100%;
+  display: block;
+  background-color: #FDAB00;
+  width: 5px;
+  top: 0;
+  left: 50%;
+  z-index: 3;
+}
+
+.skewed .handle {
+  top: 50%;
+  transform: rotate(30deg) translateY(-50%); /* *画斜线 */
+  height: 200%;
+  transform-origin: top; /* *设置transform的参考系，“top”表示以元素的上边界作为参考系 */
+}
+
+.skewed .top {
+  transform: skew(-30deg);  /* 歪斜顶层部分 */
+  margin-left: -1000px;  /* 把顶层白色部分移出视窗 */
+  width: calc(50vw + 1000px);  /* calc()是CSS的计算函数, 这里的作用是把顶层的白色从-1000px处延伸回来视图 */
+}
+
+.skewed .top .content-wrap {
+  transform: skew(30deg);  /* 把顶层部分的内容歪斜回来 */
+  margin-left: 1000px;  /* 把顶层部分的内容移回来视窗中 */
+}
+
+@media(max-width: 768px) {
+  body {
+    font-size: 75%;
+  }
+}

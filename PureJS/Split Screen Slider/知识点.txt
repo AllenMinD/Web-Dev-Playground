@@ -1,0 +1,75 @@
+知识点：
+1.想要让元素的高度取决与视窗的宽度，可以利用vw单位：
+
+.box {
+    height: 55wv;
+}
+
+2.z-index：
+z-index值大的视图会覆盖z-index值小的视图
+
+3.CSS3的transform
+https://developer.mozilla.org/en-US/docs/Web/CSS/transform
+transform: skew(30deg);   // skew可以把元素整体“歪斜”
+
+transform: rotate(30deg);  // rotate可以把元素“旋转”
+利用transform: rotate（n deg）可以画斜线：
+
+.skewed .handle {
+  top: 50%;
+  transform: rotate(30deg) translateY(-50%); /* *画斜线 */
+  height: 200%;
+  transform-origin: top; /* *设置transform的参考系，“top”表示以元素的上边界作为参考系 */
+}
+
+transform-origin用来设置transform的参考系：
+https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin
+
+4.实现Split Screen Slider效果的整体思路：
+1）页面结构方面，只要分为3个部分：底层部分（黑色部分）、顶层部分（白色部分）、分割线（橙色的那条分割线），将它们的z-index分别设置为1，2，3。
+2）使用绝对定位absolute进行布局：将底层/顶层部分的内容（.content-body）放到响应的位置，图片居中。
+3）对顶层部分（白色的部分）进行“歪斜”（skew）：
+
+.skewed .top {
+  transform: skew(-30deg);  /* 歪斜顶层部分 */
+  margin-left: -1000px;  /* 把顶层白色部分移出视窗 */
+  width: calc(50vw + 1000px);  /* calc()是CSS的计算函数, 这里的作用是把顶层的白色从-1000px处延伸回来视图 */
+}
+
+.skewed .top .content-wrap {
+  transform: skew(30deg);  /* 把顶层部分的内容歪斜回来 */
+  margin-left: 1000px;  /* 把顶层部分的内容移回来视窗中 */
+}
+4）对分割线（橙色那条）进行“歪斜”（skew）：
+
+.skewed .handle {
+  top: 50%;
+  transform: rotate(30deg) translateY(-50%); /* *画斜线 */
+  height: 200%;
+  transform-origin: top; /* *设置transform的参考系，“top”表示以元素的上边界作为参考系 */
+}
+5）接着是弄js部分，主要利用mousemove事件，然后结合一些数学计算（这个在这里不方便说明，具体看程序）：
+
+document.addEventListener('DOMContentLoaded', function() {
+  let wrapper = document.getElementById('wrapper');
+  let topLayer = wrapper.querySelector('.top');  // .querySelector方法不一定是用来document后，可以是任意DOM对象
+  let handle = wrapper.querySelector('.handle');
+  let skew = 0;
+  let delta = 0;
+
+  if (wrapper.className.indexOf('skewed') !== -1) {
+    skew = 990;  // 这里设成1000的话，那么图片的分解就和橙色的分界线重合
+  }
+
+  wrapper.addEventListener('mousemove', function(e) {
+    delta = (e.clientX - window.innerWidth / 2) * 0.5;
+
+    handle.style.left = e.clientX + delta + 'px';
+
+    topLayer.style.width = e.clientX + skew + delta + 'px';
+  }, false);
+}, false);
+
+
+
+
