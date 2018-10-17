@@ -8,3 +8,4 @@
 5. [背景图片Fullsrceen效果的LandingPage](https://allenmind.github.io/Web-Dev-Playground/HTML&CSS/FullScreen%20LandingPage/index.html)
 6. [倒计时页面ComingSoon LandingPage](https://allenmind.github.io/Web-Dev-Playground/PureJS/ComingSoon%20LandingPage/index.html)
 7. [Split效果升级版（加上了Slider效果）](https://allenmind.github.io/Web-Dev-Playground/PureJS/Split%20Screen%20Slider/index.html)
+8. [Accordion手风琴效果](https://allenmind.github.io/Web-Dev-Playground/HTML%26CSS/Accordion%20Effect%EF%BC%88%E6%89%8B%E9%A3%8E%E7%90%B4%E6%95%88%E6%9E%9C%EF%BC%89/index.html)
