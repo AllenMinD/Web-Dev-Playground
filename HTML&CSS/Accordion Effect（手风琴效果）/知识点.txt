@@ -1,0 +1,109 @@
+知识点：
+1.Genericons的使用
+https://www.1001fonts.com/genericons-font.html
+Genericons是嵌入在webfont中的矢量图标。
+可以理解为把图标做成了像文字一样的字符。
+引入的时候使用@font-face引入，使用的时候一般结合伪元素::before或::after来使用，把图标对应的编码写在content中，就可以显示出相应的图标。
+
+@font-face {
+  font-family: 'Genericons';
+  src: url('asset/genericons-regular-webfont.woff')format('woff'),
+      url('asset/genericons-regular-webfont.eot')format('truetype');
+}
+
+/* 添加图标 */
+.youtube a::before,
+.youtube a::after {
+  content: '\f213';
+}
+
+2.手风琴效果的实现思路：
+主要结合伪类 :hover、margin以及transition来实现。
+每一项分为三个部分：灰色的部分、有颜色的部分、内容部分。
+默认情况下，只会显示灰色部分。
+当鼠标hover的时候，整一项的宽度变宽（width：450px），让内容部分显示出来；然后黑色部分左移（设置margin-left：-100px）；有颜色的部分也左移（margin-left：-5px）。
+
+/* 手风琴整体 */
+.accordion {
+  background: #333;
+  width: 100%;
+  min-width: 800px;
+  display: block;
+  list-style-type: none;
+  overflow: hidden;
+  height: 200px;
+  font-size: 0;
+}
+
+/* 某一项的样式 */
+.tab {
+  display: inline-block;
+  background-color: #444;
+  border-right: 1px solid #333;
+  width: 80px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  transition: all 0.5s ease-in-out 0.1s;
+}
+
+/* 鼠标hover时，整项的宽度变宽，把内容部分显示出来 */
+.tab:hover {
+  width: 450px;
+}
+
+/* 鼠标hover时，黑色部分左移 */
+.tab:hover .social a::before {
+  margin-left: -100px;
+}
+
+/* 鼠标hover时，有颜色的部分左移 */
+.tab:hover .social a::after {
+  margin-left: -5px;
+}
+
+/* 内容部分的样式 */
+.tab .content {
+  background: #fff;
+  width: 360px;
+  height: 200px;
+  margin-left: 80px;
+  position: relative;
+  padding: 50px 0 0 15px;
+}
+
+.tab .content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.tab .content p {
+  font-size: 0.85rem;
+  line-height: 1.4rem;
+  padding-right: 30px;
+}
+
+/* 灰色部分和有颜色的部分的样式 */
+/* ::before是灰色的状态 */
+/* ::after是有颜色的状态（hover） */
+.social a::before,
+.social a::after {
+  width: 80px;
+  height: 200px;
+  position: absolute;
+  text-indent: 0;  /* * */
+  display: block;
+  padding-top: 90px;
+  padding-left: 25px;
+  font: normal 30px Genericons;  /* * */
+  color: #fff;
+  transition: all 0.4s ease-in-out 0.1s;
+}
+
+.social a::after {
+  font-size: 48px;
+  padding-left: 20px;
+  padding-top: 80px;
+  margin-left: 85px;
+}
