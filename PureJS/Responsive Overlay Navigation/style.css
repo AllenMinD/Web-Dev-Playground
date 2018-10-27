@@ -1,6 +1,6 @@
 @font-face {
   font-family: Lato;
-  src: url('asset/Lato-Regular.ttf');
+  src: url('./asset/Lato-Regular.ttf');
 }
 
 * {
@@ -17,7 +17,7 @@ html {
 body {
   width: 100%;
   height: 100vh;
-  background-image: url('/asset/bg.jpeg');
+  background-image: url('./asset/bg.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
