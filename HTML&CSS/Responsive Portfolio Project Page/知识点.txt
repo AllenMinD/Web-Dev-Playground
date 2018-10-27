@@ -1,0 +1,46 @@
+知识点：
+1.flex
+2.grid
+3.ScrollReveal
+	使用：
+	在<head>标签导入CDN<script src="https://unpkg.com/scrollreveal"></script>
+	（注意一定是要在<head>导入，不然会出现闪烁现象）
+	
+	然后写入js：
+	调用ScrollReveal()函数来创建一个ScrollReveal对象，然后调用reveal方法来创建动画。
+	
+	ScrollReveal().reveal('.anim', {
+      distance: '50px',
+      duration: 500,
+      interval: 400,
+      origin: 'right',
+      scale: 0.85
+	});
+	
+	.reveal(elem, options)方法需要2个参数：
+	第一个参数elem是需要绑定动画的元素的class或id；
+	第二个参数options是一个对象，里面的内容将作为动画的配置选项。
+	
+	options对象中的属性如下：
+		delay：规定每个对象延长出现的时间
+		distance：规定每个元素出现在画面之前，与目标位置的距离
+		duration：规定动画的时长
+		easing：规定动画播放的速度
+		interval：规定每个元素之间播放动画的间隔
+		opacity：规定元素在出现前的透明度
+		orign：规定元素在出现在画面之前所在的位置（上下左右）
+		rotate：规定元素在显示之前的旋转角度
+		scale：规定元素在显示之前的缩放比例
+		
+		container：规定某个元素作为视口
+		desktop：（true|false）规定桌面电脑的浏览器启用ScrollReveal动画
+		moblie：（true|false）规定移动段的浏览器启用ScrollReveal动画
+		reset：（true|false）如果设置了true，那么每次当视口移动到任何一个地方，都会重新触发动画，即时那个视口的元素已经触发过动画了。
+		useDelay：定义启用ScrollReveal动画的延时（？）
+		viewFactor：指定元素的哪个部分必须在视口中才能被视为可见。
+		viewOffset：当计算元素的可见度的时候，扩展/收缩可活动区域的边界
+		
+		afterReset：当reset完成以后的回调
+		afterReveal：当reveal完成以后的回调
+		beforeReset：当reset开始的时候的回调
+		beforeReveal：当reveal开始的时候的回调

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>滚动动画LandingPage</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <nav class="navBar">
+      <a href="#">
+        <img src="asset/logo.png" alt="logo">
+      </a>
+      <a href="#">
+        <img src="asset/menu.png" alt="menu">
+      </a>
+    </nav>
+
+    <header class="header1">
+      <h1 class="anim">UI & UX Desgin</h1>
+      <p class="anim">Voluptate nisi esse aliquip irure amet proident ad adipisicing in velit. Consequat sit duis velit magna aliqua incididunt ipsum tempor culpa. Laboris aliquip irure commodo minim sit eiusmod cillum proident aliqua voluptate sit cupidatat.</p>
+    </header>
+
+    <div class="work">
+      <div class="anim"><img src="asset/top1.jpeg" alt="top1"></div>
+      <div class="anim"><img src="asset/top2.jpg" alt="top2"></div>
+      <div class="anim"><img src="asset/top3.jpg" alt="top3"></div>
+      <div class="anim"><img src="asset/top4.jpg" alt="top4"></div>
+    </div>
+
+    <header class="header2">
+      <h1 class="anim">Other Projects</h1>
+      <p class="anim">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, delectus est impedit animi, quas deleniti consectetur ipsum assumenda ducimus perspiciatis ad quo neque cum. Ab tenetur suscipit possimus quibusdam quis?</p>
+    </header>
+
+    <div class="work2">
+      <img class="anim" src="asset/under1.jpeg" alt="under1">
+      <img class="anim" src="asset/under2.jpeg" alt="under2">
+    </div>
+
+    <footer>
+      <p class="anim">Allenmind | Desgin</p>
+    </footer>
+  </div>
+
+  <script>
+    ScrollReveal().reveal('.anim', { 
+      distance: '50px',
+      duration: 500,
+      interval: 400,
+      origin: 'right',
+      // rotate: {
+      //   x: 20,
+      //   y: 30
+      // }
+      scale: 0.85,
+      reset: true
+    });
+  </script>
+</body>
+</html>
