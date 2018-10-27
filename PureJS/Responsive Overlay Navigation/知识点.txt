@@ -1,0 +1,50 @@
+知识点：
+
+1.@media
+
+2.flex
+
+3.右上角的“汉堡”按钮的动画：
+
+#toggle {
+    position: absolute;
+    right: 40px;
+    z-index: 999;
+    width: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    visibility: hidden;
+    opacity: 0;
+}
+
+// “汉堡”按钮原来只是3条横线
+#toggle .span {
+    height: 3px;
+    background: #fff;
+    margin: 5px auto;
+    transition: all 0.3s ease-out;
+}
+
+// 点击“汉堡”按钮后，按钮变叉叉的形状
+#toggle.on #one {
+    transform: rotate(45deg) translate(2px, 4px);
+}
+
+#toggle.on #two {
+    opacity: 0;
+}
+
+#toggle.on #three {
+    transform: rotate(-45deg) translate(8px, -10px);
+}
+
+...
+
+@media (max-width: 768px) {
+    #toggle {
+        visibility: visible;
+        opacity: 1;
+        right: 18px;
+    }
+...
+}
