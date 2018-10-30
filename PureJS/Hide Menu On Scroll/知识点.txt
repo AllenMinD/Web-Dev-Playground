@@ -1,0 +1,40 @@
+知识点：
+1.hover过渡效果列表项下的白线用伪元素::after来显示，在鼠标没有hover列表项时，白线的width为0， 当hover时，width为100%。然后对白线的width做过渡（transition）
+
+#menu li a::after {    
+	content: "";    
+	display: block;    
+	width: 0;    
+	height: 2px;    
+	background: #fff;    
+	transition: all 0.3s ease-in-out;
+}
+
+#menu li a:hover::after {    
+	width: 100%;
+}
+
+2.window.pageXOffset 和 window.pageYOffset
+window.pageXOffset 和 window.pageYOffset会返回文档在窗口左上角水平和垂直方向滚动的像素。
+
+3.“向下滚动隐藏菜单，向上滚动显示菜单”的思路
+使用window.pageYOffset获取一开始窗口垂直方向滚动的像素（存在prevScrollpos中）；
+监听onScroll事件，每当滚动时，同样用window.pageYOffset获取当前窗口垂直方向滚动的像素（存在currentScrollpos中）；
+当prevScrollpos > currentScrollpos时，说明用户向上滚动了，此时应该显示菜单栏（设置top：0）；
+当prevScrollpos < currentScrollpos时，说明用户向下滚动了，此时应该显示菜单栏（设置top：-100px）；
+每次改变top后，prevScrollpos = currentScrollpos。
+
+// pageXOffset 和 pageYOffset 属性返回文档在窗口左上角水平和垂直方向滚动的像素。
+var prevScrollpos = window.pageYOffset;
+var navbar = document.getElementById('navbar');
+
+window.onscroll = function() {
+    var currentScrollpos = window.pageYOffset;
+    if (prevScrollpos > currentScrollpos) {
+        navbar.style.top = '0';
+    } else {
+        navbar.style.top = '-100px';
+    }
+
+    prevScrollpos = currentScrollpos;
+}
