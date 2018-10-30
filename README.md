@@ -11,3 +11,4 @@
 8. [Accordion手风琴效果](https://allenmind.github.io/Web-Dev-Playground/HTML%26CSS/Accordion%20Effect%EF%BC%88%E6%89%8B%E9%A3%8E%E7%90%B4%E6%95%88%E6%9E%9C%EF%BC%89/index.html)
 9. [滚动动画LandingPage](https://allenmind.github.io/Web-Dev-Playground/HTML%26CSS/Responsive%20Portfolio%20Project%20Page/index.html)
 10. [响应式动画导航栏Responsive Overlay Navigation](https://allenmind.github.io/Web-Dev-Playground/PureJS/Responsive%20Overlay%20Navigation/index.html)
+11. [滚动显示/隐藏顶部菜单效果（加上一点特效）](https://allenmind.github.io/Web-Dev-Playground/PureJS/Hide%20Menu%20On%20Scroll/index.html)
