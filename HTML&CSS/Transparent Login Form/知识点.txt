@@ -1,0 +1,58 @@
+知识点：
+
+1.修改input[type="text"] 和 input[type="password"]的默认样式：
+
+/* 修改input表单的默认样式 */
+.loginBox input[type="text"],
+.loginBox input[type="password"] {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #fff;
+    background-color: transparent;
+    height: 40px;
+    color: #fff;
+    font-size: 1rem;
+    transition: border-bottom 0.3s;
+}
+
+.loginBox input[type="text"]:focus,
+.loginBox input[type="password"]:focus {
+    border-bottom: 3px solid #fff;
+}
+
+2.修改input[type="submit"]的默认样式
+
+/* 修改按钮的默认样式 */
+.loginBox input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    color: #eee;
+    font-size: 1rem;
+    background-color: rgba(156, 211, 181, 0.7);
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+.loginBox input[type="submit"]:hover {
+    background-color: #9CDDB5;
+    color: #fff;
+}
+
+3.修改placeholder的样式：
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+4.把头像居中显示（利用absolute、calc）：
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+    top: calc(-100px / 2);
+    left: calc(50% - 50px);
+}
