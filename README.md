@@ -13,3 +13,6 @@
 10. [响应式动画导航栏Responsive Overlay Navigation](https://allenmind.github.io/Web-Dev-Playground/PureJS/Responsive%20Overlay%20Navigation/index.html)
 11. [滚动显示/隐藏顶部菜单效果（加上一点特效）](https://allenmind.github.io/Web-Dev-Playground/PureJS/Hide%20Menu%20On%20Scroll/index.html)
 12. [透明+动画登录页](https://allenmind.github.io/Web-Dev-Playground/HTML%26CSS/Transparent%20Login%20Form/index.html)
+13. [波浪动画的按钮](https://allenmind.github.io/Web-Dev-Playground/HTML%26CSS/Button%20Hover%20Waves%20Animation/index.html)
+14. [打字机效果（无JS）](https://allenmind.github.io/Web-Dev-Playground/HTML%26CSS/TypeWriter%20Effect%EF%BC%88%E6%89%93%E5%AD%97%E6%9C%BA%E6%95%88%E6%9E%9C%E7%BA%AF%E6%97%A0JS%EF%BC%89/index.html)
+15. [滚动到一定时候navbar固定](https://allenmind.github.io/Web-Dev-Playground/HTML%26CSS/Navbar%20Fixed%20Top%20After%20Scrolling/index.html)
