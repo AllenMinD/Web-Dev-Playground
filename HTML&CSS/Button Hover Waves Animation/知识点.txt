@@ -1,0 +1,42 @@
+知识点：
+1.通过border-radius来制造波浪效果
+.btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%; 
+  height: 0%;
+  background: lightskyblue;
+  z-index: -1;
+  transition: all 0.5s;
+}
+
+/* 通过border-radius来制造“波浪”的效果 */
+.btn1::before,
+.btn3::before {
+  top: 0;
+  border-radius: 0 0 50% 50%;
+}
+
+.btn2::before,
+.btn4::before {
+  bottom: 0;
+  border-radius: 50% 50% 0 0;
+}
+
+/* 设置初始位置 */
+.btn3::before,
+.btn4::before {
+  height: 180%;
+}
+
+/* 波浪效果 */
+.btn1:hover::before,
+.btn2:hover::before {
+  height: 180%;
+}
+
+.btn3:hover::before,
+.btn4:hover::before {
+  height: 0%;
+}

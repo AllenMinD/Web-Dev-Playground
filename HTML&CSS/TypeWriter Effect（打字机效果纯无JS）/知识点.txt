@@ -1,0 +1,3 @@
+知识点：
+1. animation属性
+https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation
